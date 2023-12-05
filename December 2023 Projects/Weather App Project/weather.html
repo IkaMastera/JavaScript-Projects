@@ -10,7 +10,9 @@
     <div class="card">
         <div class="search">
             <input type="text" placeholder="enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt="search"></button>
+            <button>
+                <img src="images/search.png">
+            </button>
         </div>
         <div class="weather">
             <img src="images/rain.png" alt="rain" class="weather-icon">
@@ -38,10 +40,13 @@
 
     <script>
         const apiKey = "b6f55d543fc6eac495227a958eb53a02";
-        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=tbilisi";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-        async function checkWeather(){
-            const response = await fetch(apiUrl + `&appid=${apiKey}`);
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
             var data = await response.json();
 
             console.log(data);
@@ -52,7 +57,10 @@
             document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
         }
 
-        checkWeather();
+        searchBtn.addEventListener("click", ()=>{
+            checkWeather(searchBox.value);
+        })
+
     </script>
 </body>
 </html>
