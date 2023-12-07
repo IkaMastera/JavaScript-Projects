@@ -12,12 +12,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100vh;
 }
 
 .app{
     background: #fff;
     width: 90%;
     max-width: 600px;
+    height: 59%;
     margin: 100px auto 0;
     border-radius: 10px;
     padding: 30px;
@@ -55,9 +57,13 @@ body{
     transition: all 0.3s;
 }
 
-.btn:hover{
+.btn:hover:not([disabled]){
     background: #222;
     color: #fff;
+}
+
+.btn:disabled{
+    cursor: no-drop;
 }
 
 #next-btn{
