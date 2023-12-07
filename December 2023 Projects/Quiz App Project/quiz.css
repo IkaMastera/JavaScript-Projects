@@ -8,7 +8,10 @@
 }
 
 body{
-    background: #001e4d;
+    background-image: url(tbilisi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .app{
