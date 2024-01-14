@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="toast.css">
-    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    crossorigin="anonymous"></script>
     <title>Toast Notification JS</title>
 </head>
 <body>
@@ -16,6 +17,26 @@
 
     <div id="toastBox"></div>
     
-    <script src="toast.js"></script>
+    <script>
+        let toastBox = document.getElementById('toastBox');
+        let successMsg = '<i class="fa-solid fa-circle-check"></i> Successfully submitted';
+        let errorMsg = '<i class="fa-solid fa-circle-xmark"></i> Please fix the error';
+        let invalidMsg = '<i class="fa-solid fa-circle-exclamation"></i> Invalid input, check again';
+
+
+        const showToast = (msg) => {
+            let toast = document.createElement('div');
+            toast.classList.add('toast');
+            toast.innerHTML = msg;
+            toastBox.appendChild(toast);
+
+            if(msg.includes('error')){
+                toast.classList.add('error');
+            }
+            if(msg.includes('Invalid')){
+                toast.classList.add('invalid');
+            }
+        }
+    </script>
 </body>
 </html>

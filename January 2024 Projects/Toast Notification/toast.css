@@ -47,3 +47,17 @@ body{
     display: flex;
     align-items: center;
 }
+
+.toast i{
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.error i{
+    color: red;
+}
+
+.toast.invalid i{
+    color: orange;
+}
